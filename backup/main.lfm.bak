@@ -1,0 +1,179 @@
+object Form1: TForm1
+  Left = 279
+  Height = 677
+  Top = 118
+  Width = 840
+  Caption = 'ViewTxt'
+  ClientHeight = 677
+  ClientWidth = 840
+  OnResize = FormResize
+  LCLVersion = '1.6.2.0'
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 654
+    Width = 840
+    Panels = <>
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 840
+    Caption = 'ToolBar1'
+    EdgeBorders = [ebTop, ebBottom]
+    Images = ImageList1
+    TabOrder = 1
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 2
+      Caption = 'ToolButton1'
+      ImageIndex = 0
+      OnClick = ToolButton1Click
+    end
+    object ToolButton2: TToolButton
+      Left = 24
+      Hint = 'Fonte'
+      Top = 2
+      Caption = 'ToolButton2'
+      OnClick = ToolButton2Click
+    end
+  end
+  object Panel1: TPanel
+    AnchorSideRight.Control = Splitter1
+    Left = 0
+    Height = 628
+    Top = 26
+    Width = 324
+    Align = alLeft
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Caption = 'Panel1'
+    ClientHeight = 628
+    ClientWidth = 324
+    TabOrder = 2
+    object FileListBox1: TFileListBox
+      Left = 1
+      Height = 379
+      Top = 248
+      Width = 314
+      Directory = 'C:\lazarus'
+      ItemHeight = 15
+      OnClick = FileListBox1Click
+      TabOrder = 0
+    end
+    object DirectoryEdit1: TDirectoryEdit
+      Left = 1
+      Height = 23
+      Top = 1
+      Width = 322
+      ShowHidden = False
+      ButtonWidth = 23
+      NumGlyphs = 1
+      Align = alTop
+      MaxLength = 0
+      TabOrder = 1
+      OnChange = DirectoryEdit1Change
+    end
+    object FilterComboBox1: TFilterComboBox
+      Left = 1
+      Height = 23
+      Top = 24
+      Width = 322
+      Align = alTop
+      Filter = 'All|*.*|Text|*.txt|PRN|*.prn|C development|*.c|C++ development|*.cpp'
+      ItemIndex = 0
+      TabOrder = 2
+      OnChange = FilterComboBox1Change
+    end
+    object ShellTreeView1: TShellTreeView
+      Left = 0
+      Height = 192
+      Top = 48
+      Width = 320
+      FileSortType = fstNone
+      TabOrder = 3
+      OnChange = ShellTreeView1Change
+      ObjectTypes = [otFolders]
+    end
+  end
+  object Panel2: TPanel
+    AnchorSideLeft.Control = Splitter1
+    Left = 324
+    Height = 628
+    Top = 26
+    Width = 516
+    Align = alClient
+    Caption = 'Panel2'
+    ClientHeight = 628
+    ClientWidth = 516
+    TabOrder = 3
+    object Memo1: TMemo
+      Left = 1
+      Height = 626
+      Top = 1
+      Width = 514
+      Align = alClient
+      Lines.Strings = (
+        'Memo1'
+      )
+      ScrollBars = ssAutoBoth
+      TabOrder = 0
+    end
+  end
+  object Splitter1: TSplitter
+    AnchorSideRight.Control = Panel2
+    Left = 324
+    Height = 628
+    Top = 153
+    Width = 5
+    Align = alNone
+    Anchors = [akTop, akLeft, akRight]
+  end
+  object ImageList1: TImageList
+    left = 784
+    Bitmap = {
+      4C69010000001000000010000000008080FF008080FF008080FF008080FF0080
+      80FF008080FF008080FF008080FF008080FF008080FF008080FF008080FF0040
+      40FF006060FF008080FF008080FF008080FF008080FF008080FF606060FF4040
+      40FF404040FF404040FF404040FF404040FF606060FF008080FF008080FF0020
+      20FF008080FF008080FF008080FF008080FF008080FF008080FF404040FF3F5F
+      20FF7F7F00FFFFFF00FFFFFF00FFFFFF00FF404040FF008080FF008080FF0020
+      20FF006060FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF002020FFBFBF00FFFFFF00FF404040FF008080FF008080FF0060
+      60FF006060FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF004040FF7F7F00FFFFFF00FF404040FF008080FF008080FF0040
+      40FF006060FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF004040FF7F7F00FFFFFF00FF404040FF008080FF008080FF0040
+      40FF004040FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF004040FF7F7F00FFFFFF00FF404040FF008080FF008080FF0060
+      60FF008080FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF004040FF7F7F00FFFFFF00FF404040FF008080FF008080FF0040
+      40FF008080FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF004040FF7F7F00FFFFFF00FF404040FF008080FF008080FF0040
+      40FF008080FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF009F9FFF7F7F00FFFFFF00FF404040FF008080FF008080FF0040
+      40FF006060FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF009F9FFF7F7F00FFFFFF00FF404040FF008080FF008080FF0040
+      40FF008080FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF004040FF7F7F00FFFFFF00FF404040FF008080FF008080FF0040
+      40FF008080FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF004040FF7F7F00FFFFFF00FF404040FF008080FF008080FF0060
+      60FF008080FF008080FF008080FF008080FF008080FF008080FF404040FF0040
+      40FF004040FF004040FF7F7F00FFFFFF00FF404040FF008080FF008080FF0080
+      80FF008080FF008080FF008080FF008080FF008080FF008080FF404040FF0020
+      20FF004040FF004040FF3F3F00FF7F7F00FF404040FF008080FF008080FF0080
+      80FF008080FF008080FF008080FF808080008080800080808000808080008080
+      8000404040FF002020FF404040FF808080008080800080808000808080008080
+      8000808080008080800080808000
+    }
+  end
+  object SaveDialog1: TSaveDialog
+    left = 712
+  end
+  object FontDialog1: TFontDialog
+    MinFontSize = 0
+    MaxFontSize = 0
+    left = 649
+    top = 8
+  end
+end

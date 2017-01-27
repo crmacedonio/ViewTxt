@@ -1,0 +1,67 @@
+object Form1: TForm1
+  Left = 294
+  Height = 677
+  Top = 151
+  Width = 840
+  Caption = 'Form1'
+  ClientHeight = 677
+  ClientWidth = 840
+  LCLVersion = '1.6.0.4'
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 654
+    Width = 840
+    Panels = <>
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 840
+    Caption = 'ToolBar1'
+    EdgeBorders = [ebTop, ebBottom]
+    Images = ImageList1
+    TabOrder = 1
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 2
+      Caption = 'ToolButton1'
+      OnClick = ToolButton1Click
+    end
+  end
+  object Panel1: TPanel
+    AnchorSideRight.Control = Splitter1
+    Left = 0
+    Height = 628
+    Top = 26
+    Width = 324
+    Align = alLeft
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Caption = 'Panel1'
+    TabOrder = 2
+  end
+  object Panel2: TPanel
+    AnchorSideLeft.Control = Splitter1
+    Left = 324
+    Height = 628
+    Top = 26
+    Width = 516
+    Align = alClient
+    Caption = 'Panel2'
+    TabOrder = 3
+  end
+  object Splitter1: TSplitter
+    AnchorSideRight.Control = Panel2
+    Left = 324
+    Height = 628
+    Top = 153
+    Width = 5
+    Align = alNone
+    Anchors = [akTop, akLeft, akRight]
+  end
+  object ImageList1: TImageList
+    left = 768
+    top = 48
+  end
+end
