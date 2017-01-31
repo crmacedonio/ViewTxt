@@ -12,7 +12,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="76"/>
+        <UsageCount Value="81"/>
       </Unit0>
       <Unit1>
         <Filename Value="main.pas"/>
@@ -21,18 +21,66 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="56"/>
-        <CursorPos X="3" Y="86"/>
-        <UsageCount Value="76"/>
+        <TopLine Value="54"/>
+        <CursorPos X="6" Y="93"/>
+        <UsageCount Value="81"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
     </Units>
-    <JumpHistory Count="1">
+    <JumpHistory Count="13" HistoryIndex="12">
       <Position1>
         <Filename Value="main.pas"/>
         <Caret Line="81" Column="36" TopLine="25"/>
       </Position1>
+      <Position2>
+        <Filename Value="main.pas"/>
+        <Caret Line="87" Column="3" TopLine="57"/>
+      </Position2>
+      <Position3>
+        <Filename Value="main.pas"/>
+        <Caret Line="115" Column="3" TopLine="74"/>
+      </Position3>
+      <Position4>
+        <Filename Value="main.pas"/>
+        <Caret Line="116" Column="31" TopLine="75"/>
+      </Position4>
+      <Position5>
+        <Filename Value="main.pas"/>
+        <Caret Line="115" Column="31" TopLine="74"/>
+      </Position5>
+      <Position6>
+        <Filename Value="main.pas"/>
+        <Caret Line="114" Column="31" TopLine="73"/>
+      </Position6>
+      <Position7>
+        <Filename Value="main.pas"/>
+        <Caret Line="113" Column="45" TopLine="73"/>
+      </Position7>
+      <Position8>
+        <Filename Value="main.pas"/>
+        <Caret Line="78" TopLine="55"/>
+      </Position8>
+      <Position9>
+        <Filename Value="main.pas"/>
+        <Caret Line="67" TopLine="55"/>
+      </Position9>
+      <Position10>
+        <Filename Value="main.pas"/>
+        <Caret Line="90" Column="48" TopLine="55"/>
+      </Position10>
+      <Position11>
+        <Filename Value="main.pas"/>
+        <Caret Line="40" TopLine="17"/>
+      </Position11>
+      <Position12>
+        <Filename Value="main.pas"/>
+        <Caret Line="19" Column="32"/>
+      </Position12>
+      <Position13>
+        <Filename Value="main.pas"/>
+        <Caret Line="40" TopLine="17"/>
+      </Position13>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

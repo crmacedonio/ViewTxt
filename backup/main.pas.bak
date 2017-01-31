@@ -16,7 +16,7 @@ Updated:
 interface
 
 uses
-  Classes, SysUtils, FileUtil, ListViewFilterEdit, Forms, Controls, Graphics,
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
   Dialogs, ComCtrls, ExtCtrls, StdCtrls, FileCtrl, EditBtn, ShellCtrls;
 
 type
@@ -24,8 +24,6 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    DirectoryEdit1: TDirectoryEdit;
-    FileListBox1: TFileListBox;
     FilterComboBox1: TFilterComboBox;
     FontDialog1: TFontDialog;
     ImageList1: TImageList;
@@ -39,11 +37,10 @@ type
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
-    procedure DirectoryEdit1Change(Sender: TObject);
-    procedure FileListBox1Click(Sender: TObject);
     procedure FilterComboBox1Change(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure ShellTreeView1Change(Sender: TObject; Node: TTreeNode);
+    procedure ShellTreeView1Click(Sender: TObject);
     procedure ToolButton1Click(Sender: TObject);
     procedure ToolButton2Click(Sender: TObject);
   private
@@ -73,37 +70,29 @@ begin
   if (FontDialog1.Execute) then Memo1.Font.Assign(FontDialog1.Font);
 end;
 
-// Apos mudar o folder, atualiza a lista de arquivos
-procedure TForm1.DirectoryEdit1Change(Sender: TObject);
-begin
-  FileListBox1.Directory:=DirectoryEdit1.Directory;
-  ShellTreeView1.Root:=DirectoryEdit1.Directory;
-  FileListBox1.Refresh;
-end;
-
-procedure TForm1.FileListBox1Click(Sender: TObject);
-begin
-  Memo1.Lines.LoadFromFile(FileListBox1.FileName);
-end;
-
 // Após mudar a mascara, atualiza a lista de arquivos
 procedure TForm1.FilterComboBox1Change(Sender: TObject);
 begin
-  FileListBox1.Mask:=FilterComboBox1.Mask;
-  FileListBox1.Refresh;
 end;
 
 // redesenha ao ser redimensionado.
 procedure TForm1.FormResize(Sender: TObject);
 begin
-  Form1.Repaint;
-  Memo1.Repaint;
-
+  Splitter1.Width:=6; // Define uma largura para o Splitter não sobrepor outros elementos
+  Splitter1.Left:=Panel1.Width+Panel1.BorderSpacing.Left; // evita que o Splitter cubra o Panel e o Memo
 end;
 
 procedure TForm1.ShellTreeView1Change(Sender: TObject; Node: TTreeNode);
 begin
-  FileListBox1.Directory:=ShellTreeView1.Path;
+  //FileListBox1.Directory:=ShellTreeView1.Path;
+  StatusBar1.SimpleText := ShellTreeView1.Path;
+end;
+
+procedure TForm1.ShellTreeView1Click(Sender: TObject);
+begin
+     Memo1.Lines.LoadFromFile(ShellTreeView1.Path);
+     StatusBar1.SimpleText := ShellTreeView1.Path;
+     //Form1.Caption:=ShellTreeView1.Path;
 end;
 
 end.
