@@ -4,10 +4,10 @@ unit main;
 [----------------------------------------------------------
 Program: ViewTxt
 Function: Browse by folders and shows text files.
-Language: Pascal
+Language: Pascal - Lazarus
 Author: CarlosRobertoMacedonio - crmacedo@gmail.com
 Created:
-Updated:
+Updated: 11/Abr/2017
 ----------------------------------------------------------]
 */
 }
@@ -17,7 +17,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, ListViewFilterEdit, Forms, Controls, Graphics,
-  Dialogs, ComCtrls, ExtCtrls, StdCtrls, FileCtrl, EditBtn, ShellCtrls;
+  Dialogs, ComCtrls, ExtCtrls, StdCtrls, FileCtrl, EditBtn, ShellCtrls,Strings;
 
 type
 
@@ -37,15 +37,17 @@ type
     Splitter1: TSplitter;
     StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
+    TBExit: TToolButton;
+    TBFont: TToolButton;
+    TBSave: TToolButton;
     procedure DirectoryEdit1Change(Sender: TObject);
     procedure FileListBox1Click(Sender: TObject);
     procedure FilterComboBox1Change(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure ShellTreeView1Change(Sender: TObject; Node: TTreeNode);
-    procedure ToolButton1Click(Sender: TObject);
-    procedure ToolButton2Click(Sender: TObject);
+    procedure TBExitClick(Sender: TObject);
+    procedure TBFontClick(Sender: TObject);
+    procedure TBSaveClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -61,16 +63,22 @@ implementation
 
 { TForm1 }
 
-procedure TForm1.ToolButton1Click(Sender: TObject);
+procedure TForm1.TBExitClick(Sender: TObject);
 begin
   Application.Terminate; // ends the application
 end;
 
 // Altera a fonte do Memo
-procedure TForm1.ToolButton2Click(Sender: TObject);
+procedure TForm1.TBFontClick(Sender: TObject);
 begin
   FontDialog1.Options := FontDialog1.Options;
   if (FontDialog1.Execute) then Memo1.Font.Assign(FontDialog1.Font);
+end;
+
+// Salva arquivo
+procedure TForm1.TBSaveClick(Sender: TObject);
+begin
+
 end;
 
 // Apos mudar o folder, atualiza a lista de arquivos
@@ -81,11 +89,20 @@ begin
   FileListBox1.Refresh;
 end;
 
+// Carrega o arquivo psra o Memo
 procedure TForm1.FileListBox1Click(Sender: TObject);
+var
+  p : integer;
+  //p2 : integer;
 begin
-  Memo1.Lines.LoadFromFile(FileListBox1.FileName);
+     p:=Length(FileListBox1.FileName); // comprimento da string
+     // RightStr('abcdefghijklmnopqrstuvwxyz',20)
+     // p2:=LastDelimiter('\.:','c:\filename.ext');
 
-  //StatusBar1.Panels.Items[1].Text:=FileListBox1.FileName;
+     ShowMessage('Comprimento p ='+IntToStr(p)+' ultimo: '+Copy(FileListBox1.FileName,p,1));
+     if ((Copy(FileListBox1.FileName,p,1) <> '\') or (Copy(FileListBox1.FileName,p,1) <> '/')) then   Memo1.Lines.LoadFromFile(FileListBox1.FileName);
+
+     //StatusBar1.Panels.Items[1].Text:=FileListBox1.FileName;
 end;
 
 // Após mudar a mascara, atualiza a lista de arquivos
