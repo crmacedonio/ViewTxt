@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
-  <Compiler Value="C:\lazarus\fpc\3.0.0\bin\x86_64-win64\fpc.exe" Date="1213098656"/>
-  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq -FiC:\Users\carlos\Documents\dvp\lazarus\ViewTxt\lib\x86_64-win64 -FuC:\lazarus\lcl\units\x86_64-win64\win32 -FuC:\lazarus\lcl\units\x86_64-win64 -FuC:\lazarus\components\lazutils\lib\x86_64-win64 -FuC:\lazarus\packager\units\x86_64-win64 -FuC:\Users\carlos\Documents\dvp\lazarus\ViewTxt\ -FUC:\Users\carlos\Documents\dvp\lazarus\ViewTxt\lib\x86_64-win64\ -dLCL -dLCLwin32 ViewTxt.lpr"/>
+  <Compiler Value="C:\lazarus\fpc\3.0.2\bin\x86_64-win64\fpc.exe" Date="1247518955"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq -FiC:\Users\carlos\Documents\dvp\lazarus\ViewTxt2\lib\x86_64-win64 -FuC:\lazarus\components\lazcontrols\lib\x86_64-win64\win32 -FuC:\lazarus\lcl\units\x86_64-win64\win32 -FuC:\lazarus\lcl\units\x86_64-win64 -FuC:\lazarus\components\lazutils\lib\x86_64-win64 -FuC:\lazarus\packager\units\x86_64-win64 -FuC:\Users\carlos\Documents\dvp\lazarus\ViewTxt2\ -FUC:\Users\carlos\Documents\dvp\lazarus\ViewTxt2\lib\x86_64-win64\ -dLCL -dLCLwin32 ViewTxt.lpr"/>
 </CONFIG>
