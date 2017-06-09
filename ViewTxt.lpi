@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="9"/>
+    <Version Value="10"/>
     <PathDelim Value="\"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
@@ -18,9 +18,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="48"/>
+      <BuildNr Value="53"/>
       <Language Value="0416"/>
-      <StringTable ProductVersion=""/>
+      <StringTable CompanyName="CRMacedonio" LegalCopyright="(C) Carlos Roberto Macedonio, all rights reserved" ProductName="ViewTxt" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>

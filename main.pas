@@ -7,7 +7,7 @@ Function: Browse by folders and shows text files.
 Language: Pascal - Lazarus
 Author: CarlosRobertoMacedonio - crmacedo@gmail.com
 Created:
-Updated: 29/Mai/2017
+Updated: 09/Jun/2017
 ----------------------------------------------------------]
 */
 }
@@ -17,7 +17,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, ListViewFilterEdit, Forms, Controls, Graphics,
-  Dialogs, ComCtrls, ExtCtrls, StdCtrls, FileCtrl, EditBtn, ShellCtrls,Strings;
+  Dialogs, ComCtrls, ExtCtrls, StdCtrls, FileCtrl, EditBtn, ShellCtrls, Buttons,
+  Strings;
 
 type
 
@@ -92,7 +93,7 @@ end;
 
 procedure TForm1.ToolButton2Click(Sender: TObject);
 begin
-     FileListBox1.Sorted:=NOT (FileListBox1.Sorted);
+     Memo1.WordWrap:= NOT (Memo1.WordWrap); // Warp On or Off
 end;
 
 procedure TForm1.ToolButton3Click(Sender: TObject);

@@ -18,9 +18,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="43"/>
+      <BuildNr Value="52"/>
       <Language Value="0416"/>
-      <StringTable ProductVersion=""/>
+      <StringTable CompanyName="CRMacedonio" LegalCopyright="(C) Carlos Roberto Macedonio, all rights reserved" ProductName="ViewTxt" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -57,6 +57,7 @@
         <Filename Value="about.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form2"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit2>
     </Units>
