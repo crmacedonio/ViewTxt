@@ -7,7 +7,7 @@ Function: Browse by folders and shows text files.
 Language: Pascal - Lazarus
 Author: CarlosRobertoMacedonio - crmacedo@gmail.com
 Created:
-Updated: 09/Jun/2017
+Updated: 16/Out/2017
 ----------------------------------------------------------]
 */
 }
@@ -16,16 +16,14 @@ Updated: 09/Jun/2017
 interface
 
 uses
-  Classes, SysUtils, FileUtil, ListViewFilterEdit, Forms, Controls, Graphics,
-  Dialogs, ComCtrls, ExtCtrls, StdCtrls, FileCtrl, EditBtn, ShellCtrls, Buttons,
-  Strings;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
+  Dialogs, ComCtrls, ExtCtrls, StdCtrls, FileCtrl, EditBtn, ShellCtrls;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
-    DirectoryEdit1: TDirectoryEdit;
     FileListBox1: TFileListBox;
     FilterComboBox1: TFilterComboBox;
     FontDialog1: TFontDialog;
@@ -34,6 +32,7 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     SaveDialog1: TSaveDialog;
+    ShellTreeView1: TShellTreeView;
     Splitter1: TSplitter;
     StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
@@ -43,20 +42,19 @@ type
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
-    ToolButton4: TToolButton;
-    procedure DirectoryEdit1Change(Sender: TObject);
     procedure FileListBox1Change(Sender: TObject);
     procedure FileListBox1Click(Sender: TObject);
     procedure FilterComboBox1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
-//    procedure ShellTreeView1Change(Sender: TObject; Node: TTreeNode);
+    procedure FormShow(Sender: TObject);
+    procedure ShellTreeView1Click(Sender: TObject);
+    // procedure ShellTreeView1Change(Sender: TObject; Node: TTreeNode);
     procedure TBExitClick(Sender: TObject);
     procedure TBFontClick(Sender: TObject);
     procedure TBSaveClick(Sender: TObject);
     procedure ToolButton2Click(Sender: TObject);
     procedure ToolButton3Click(Sender: TObject);
-    procedure ToolButton4Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -67,7 +65,6 @@ var
   Form1: TForm1;
 
 implementation
-uses about;
 
 {$R *.lfm}
 
@@ -93,7 +90,7 @@ end;
 
 procedure TForm1.ToolButton2Click(Sender: TObject);
 begin
-     Memo1.WordWrap:= NOT (Memo1.WordWrap); // Warp On or Off
+     If (FileListBox1.Sorted) then FileListBox1.Sorted:=NOT (FileListBox1.Sorted);
 end;
 
 procedure TForm1.ToolButton3Click(Sender: TObject);
@@ -103,18 +100,19 @@ begin
     Memo1.Lines.SaveToFile( SaveDialog1.Filename );
 end;
 
-procedure TForm1.ToolButton4Click(Sender: TObject);
+// Carrega o arquivo psra o Memo
+procedure TForm1.FileListBox1Click(Sender: TObject);
+var
+  p : integer;
+  //p2 : integer;
 begin
-  Form2.ShowModal;
-end;
-
-// Apos mudar o folder, atualiza a lista de arquivos
-procedure TForm1.DirectoryEdit1Change(Sender: TObject);
-begin
-//  ShellTreeView1.Root:=DirectoryEdit1.Directory;
-//  ShellTreeView1.Refresh;
-  FileListBox1.Directory:=DirectoryEdit1.Directory;
-  FileListBox1.Refresh;
+     p:=Length(FileListBox1.FileName); // comprimento da string
+     if ((Copy(FileListBox1.FileName,p,1) <> '\') or (Copy(FileListBox1.FileName,p,1) <> '/')) then begin
+       Memo1.Lines.Clear;
+       Memo1.Lines.LoadFromFile(FileListBox1.FileName);
+       Form1.StatusBar1.Panels.Items[0].Text:=FileListBox1.FileName;
+       Form1.Caption:=FileListBox1.FileName;
+     end;
 end;
 
 procedure TForm1.FileListBox1Change(Sender: TObject);
@@ -122,56 +120,17 @@ begin
 
 end;
 
-// Carrega o arquivo psra o Memo
-procedure TForm1.FileListBox1Click(Sender: TObject);
-var
-  p : integer;
-  buff : string;
-  //p2 : integer;
-begin
-     p:=Length(FileListBox1.FileName); // comprimento da string
-     // RightStr('abcdefghijklmnopqrstuvwxyz',20)
-     // p2:=LastDelimiter('\.:','c:\filename.ext');
-
-     //ShowMessage('Comprimento p ='+IntToStr(p)+' ultimo: '+Copy(FileListBox1.FileName,p,1));
-
-     { olhar este código, usar para navegar
-     With FileListBox1 do begin
-     FileType:=[ftNormal,ftReadOnly];
-     Mask:='*.*';
-     MultiSelect:=True;
-
-     Directory:='C:\Tmp\Dir1\';
-   end;
-
-      }
-     buff:=Copy(FileListBox1.FileName,p,1);
-     if (FileListBox1.FileType <> [ftdirectory] ) then begin
-
-        if ((Copy(FileListBox1.FileName,p,1) <> '\') or (Copy(FileListBox1.FileName,p,1) <> '/') or (Copy(FileListBox1.FileName,p,1) <> '.')) then begin
-           Memo1.Lines.Clear;
-           Memo1.Lines.LoadFromFile(FileListBox1.FileName);
-           StatusBar1.Panels.Items[0].Alignment:=taLeftJustify;
-           StatusBar1.Panels.Items[0].Width:=Form1.Width;
-           StatusBar1.Panels.Items[0].Text:=FileListBox1.FileName;
-           end;
-     end;
-end;
-
 // Após mudar a mascara, atualiza a lista de arquivos
 procedure TForm1.FilterComboBox1Change(Sender: TObject);
 begin
   FileListBox1.Mask:=FilterComboBox1.Mask;
+  ShellTreeView1.Refresh;
   FileListBox1.Refresh;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   Memo1.Lines.Clear; // Clear memo1 content
-  FileListBox1.Directory:=DirectoryEdit1.Directory;
-  FileListBox1.Mask:=FilterComboBox1.Mask;
-  StatusBar1.Panels.Items[0].Text:=FileListBox1.Directory;
-  FileListBox1.Refresh;
 end;
 
 // redesenha ao ser redimensionado.
@@ -181,15 +140,22 @@ begin
   Memo1.Repaint;
   Splitter1.Width:=6;
   Splitter1.Left:=Panel1.Width+2;
-  StatusBar1.Panels.Items[0].Alignment:=taLeftJustify;
-  StatusBar1.Panels.Items[0].Width:=Form1.Width;
-  if (FileListBox1.FileName <> '') then  StatusBar1.Panels.Items[0].Text:=FileListBox1.FileName;
 end;
 
-//procedure TForm1.ShellTreeView1Change(Sender: TObject; Node: TTreeNode);
-//begin
-//  FileListBox1.Directory:=ShellTreeView1.Path;
-//end;
+procedure TForm1.FormShow(Sender: TObject);
+begin
+    Form1.FileListBox1.Directory:= Form1.ShellTreeView1.Path;
+    FileListBox1.Mask:=FilterComboBox1.Mask;
+    FileListBox1.Refresh;
+end;
+
+procedure TForm1.ShellTreeView1Click(Sender: TObject);
+begin
+  Form1.FileListBox1.Directory:= Form1.ShellTreeView1.Path;
+  FileListBox1.Mask:=FilterComboBox1.Mask;
+  FileListBox1.Refresh;
+end;
+
 
 end.
 

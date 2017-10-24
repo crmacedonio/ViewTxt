@@ -18,9 +18,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="53"/>
+      <BuildNr Value="41"/>
       <Language Value="0416"/>
-      <StringTable CompanyName="CRMacedonio" LegalCopyright="(C) Carlos Roberto Macedonio, all rights reserved" ProductName="ViewTxt" ProductVersion=""/>
+      <StringTable CompanyName="Carlos R. Macedonio" LegalCopyright="Carlos R. Macedonio" LegalTrademarks="Carlos R. Macedonio" ProductName="ViewTxt" ProductVersion="0.1.0.30"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -41,7 +41,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="2">
       <Unit0>
         <Filename Value="ViewTxt.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -53,13 +53,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit1>
-      <Unit2>
-        <Filename Value="about.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form2"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-      </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

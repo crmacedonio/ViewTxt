@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="3">
+    <Units Count="2">
       <Unit0>
         <Filename Value="ViewTxt.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -12,7 +12,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="162"/>
+        <UsageCount Value="142"/>
       </Unit0>
       <Unit1>
         <Filename Value="main.pas"/>
@@ -22,19 +22,9 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="49" Y="28"/>
-        <UsageCount Value="162"/>
+        <CursorPos X="12" Y="10"/>
+        <UsageCount Value="142"/>
       </Unit1>
-      <Unit2>
-        <Filename Value="about.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form2"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="57" Y="32"/>
-        <UsageCount Value="61"/>
-      </Unit2>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="-1"/>
