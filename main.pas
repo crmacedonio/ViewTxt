@@ -7,7 +7,7 @@ Function: Browse by folders and shows text files.
 Language: Pascal - Lazarus
 Author: CarlosRobertoMacedonio - crmacedo@gmail.com
 Created:
-Updated: 16/Out/2017
+Updated: 31/Out/2017
 ----------------------------------------------------------]
 */
 }
@@ -16,7 +16,7 @@ Updated: 16/Out/2017
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
+  Classes, SysUtils, sqlite3conn, FileUtil, Forms, Controls, Graphics,
   Dialogs, ComCtrls, ExtCtrls, StdCtrls, FileCtrl, EditBtn, ShellCtrls;
 
 type
