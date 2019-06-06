@@ -7,4 +7,9 @@ Currently it can be compiled unchanged in:
   - **Windows**
   - **MacOS** (_no tested yet_)
 
+**Cloning for the first time:**
+
+- $ cd 
+- $ git clone git://github.com/crmacedonio/ViewTxt.git
+
 **Use and enjoy!**
